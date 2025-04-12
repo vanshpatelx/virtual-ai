@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cup -->
+  <path d="M50 60h100v100H50z" fill="#8B4513"/>
+  <path d="M40 160h120v10H40z" fill="#8B4513"/>
+  <!-- Coffee -->
+  <path d="M60 80h80v70H60z" fill="#C3A17D"/>
+  <!-- Foam -->
+  <path d="M60 80h80v20H60z" fill="#FFF"/>
+  <!-- Cocoa Powder -->
+  <path d="M70 85l60 10M70 95l60 -10" stroke="#8B4513" stroke-width="2"/>
+  <!-- Steam -->
+  <path d="M80 40c0 0 0 -10 10 -10s10 10 10 10M100 30c0 0 0 -10 10 -10s10 10 10 10" stroke="#666" fill="none" stroke-width="3"/>
+</svg>

@@ -29,10 +29,44 @@ export const selectJobTool: ClientToolImplementation = (parameters) => {
   return `Filtered jobs for skills: ${skills.join(', ')}`;
 };
 
-export const chooseSpecificJobTool: ClientToolImplementation = (parameters) => {
-  const { jobId } = parameters;
+export const generateJobDetailsTool: ClientToolImplementation = (parameters) => {
+  const { summary, interviewTips, resumeTips } = parameters;
 
-  console.debug("Selected job for details:", jobId);
+  console.debug("Generated job details:", { summary, interviewTips, resumeTips });
+
+  if (typeof window !== "undefined") {
+    const event = new CustomEvent('jobDetailsGenerated', {
+      detail: { summary, interviewTips, resumeTips }
+    });
+    window.dispatchEvent(event);
+  }
+
+  return "Displayed job details with interview and resume tips.";
+};
+
+
+// export const chooseSpecificJobTool: ClientToolImplementation = (parameters) => {
+//   const { jobId } = parameters;
+
+//   console.debug("Selected job for details:", jobId);
+
+//   if (typeof window !== "undefined") {
+//     const event = new CustomEvent("selectedJobDetails", {
+//       detail: { jobId }
+//     });
+//     window.dispatchEvent(event);
+//   }
+
+//   return `Selected job with ID: ${jobId} and fetched summary, interview tips, and resume advice.`;
+// };
+
+export const chooseSpecificJobTool: ClientToolImplementation = (parameters) => {
+  const { company, role } = parameters;
+
+  console.debug("Selected company and role:", company, role);
+
+  // Simulated job ID generation logic based on company and role.
+  const jobId = `${company}-${role}`;
 
   if (typeof window !== "undefined") {
     const event = new CustomEvent("selectedJobDetails", {
@@ -41,8 +75,9 @@ export const chooseSpecificJobTool: ClientToolImplementation = (parameters) => {
     window.dispatchEvent(event);
   }
 
-  return `Selected job with ID: ${jobId} and fetched summary, interview tips, and resume advice.`;
+  return `Selected job for company: ${company}, role: ${role} with ID: ${jobId} and fetched summary, interview tips, and resume advice.`;
 };
+
 
 export const generateTipsTool: ClientToolImplementation = (parameters) => {
   const { summary, strengths, improvementTips } = parameters;

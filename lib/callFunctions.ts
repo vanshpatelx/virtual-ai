@@ -88,8 +88,8 @@ export async function startCall(callbacks: CallCallbacks, callConfig: CallConfig
     uvSession.registerToolImplementation("generateTips", generateTipsTool);
 
 // Register job-related tools
-uvSession.registerToolImplementation("selectJob", selectJobTool);
-uvSession.registerToolImplementation("chooseSpecificJob", chooseSpecificJobTool);
+uvSession.registerToolImplementation("findJobs", selectJobTool);
+uvSession.registerToolImplementation("getJobDetails", chooseSpecificJobTool);
 
     if(showDebugMessages) {
       console.log('uvSession created:', uvSession);

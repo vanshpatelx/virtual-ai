@@ -212,7 +212,7 @@ const selectedTools: SelectedTool[] = [
   },
   {
     temporaryTool: {
-      modelToolName: "selectJob",
+      modelToolName: "findJobs",
       description: "Filter jobs based on the user's selected skills or tech stack.",
       dynamicParameters: [
         {
@@ -234,8 +234,8 @@ const selectedTools: SelectedTool[] = [
   },
   {
     temporaryTool: {
-      modelToolName: "chooseSpecificJob",
-      description: "Select a specific job by ID to get summary, interview, and resume tips.",
+      modelToolName: "getJobDetails",
+      description: "Generate and display a summary, interview, and resume tips after the jobs is selected. Select a specific job by ID to get summary, interview, and resume tips.",
       dynamicParameters: [
         {
           name: "jobId",
@@ -245,11 +245,47 @@ const selectedTools: SelectedTool[] = [
             description: "The ID of the selected job"
           },
           required: true
+        },
+        {
+          name: "summary",
+          location: ParameterLocation.BODY,
+          schema: {
+            type: "string",
+            description: "The summary of the job"
+          },
+          required: true
+        },
+        {
+          name: "interviewTips",
+          location: ParameterLocation.BODY,
+          schema: {
+            type: "array",
+            items: {
+              type: "string",
+              description: "One tip for interview preparation"
+            },
+            description: "List of interview tips for the selected job"
+          },
+          required: true
+        },
+        {
+          name: "resumeTips",
+          location: ParameterLocation.BODY,
+          schema: {
+            type: "array",
+            items: {
+              type: "string",
+              description: "One tip for resume optimization"
+            },
+            description: "List of resume tips for the selected job"
+          },
+          required: true
         }
       ],
       client: {}
     }
   }
+  
 
 ];
 

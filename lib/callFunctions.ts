@@ -1,7 +1,7 @@
 'use client';
 import { UltravoxSession, UltravoxSessionStatus, Transcript, UltravoxExperimentalMessageEvent, Role } from 'ultravox-client';
 import { JoinUrlResponse, CallConfig } from '@/lib/types';
-import { updateOrderTool, highlightProductTool, updateTechStackTool, updateQuestionProgressTool, updateQuestionAndScoreTool, generateTipsTool} from '@/lib/clientTools';
+import { updateOrderTool, highlightProductTool, updateTechStackTool, updateQuestionProgressTool, updateQuestionAndScoreTool, generateTipsTool, selectJobTool, chooseSpecificJobTool} from '@/lib/clientTools';
 
 let uvSession: UltravoxSession | null = null;
 const debugMessages: Set<string> = new Set(["debug"]);
@@ -87,6 +87,9 @@ export async function startCall(callbacks: CallCallbacks, callConfig: CallConfig
     uvSession.registerToolImplementation("updateQuestionAndScore", updateQuestionAndScoreTool);
     uvSession.registerToolImplementation("generateTips", generateTipsTool);
 
+// Register job-related tools
+uvSession.registerToolImplementation("selectJob", selectJobTool);
+uvSession.registerToolImplementation("chooseSpecificJob", chooseSpecificJobTool);
 
     if(showDebugMessages) {
       console.log('uvSession created:', uvSession);

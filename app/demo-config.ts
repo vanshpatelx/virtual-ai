@@ -209,9 +209,48 @@ const selectedTools: SelectedTool[] = [
       ],
       client: {}
     }
+  },
+  {
+    temporaryTool: {
+      modelToolName: "selectJob",
+      description: "Filter jobs based on the user's selected skills or tech stack.",
+      dynamicParameters: [
+        {
+          name: "skills",
+          location: ParameterLocation.BODY,
+          schema: {
+            type: "array",
+            items: {
+              type: "string",
+              description: "A skill (e.g., Node.js, React, etc.), we only send Node or React or always like this format"
+            },
+            description: "List of relevant skills to filter jobs"
+          },
+          required: true
+        }
+      ],
+      client: {}
+    }
+  },
+  {
+    temporaryTool: {
+      modelToolName: "chooseSpecificJob",
+      description: "Select a specific job by ID to get summary, interview, and resume tips.",
+      dynamicParameters: [
+        {
+          name: "jobId",
+          location: ParameterLocation.BODY,
+          schema: {
+            type: "string",
+            description: "The ID of the selected job"
+          },
+          required: true
+        }
+      ],
+      client: {}
+    }
   }
-  
-  
+
 ];
 
 export const demoConfig: DemoConfig = {

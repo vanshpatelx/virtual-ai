@@ -14,6 +14,35 @@ export const updateOrderTool: ClientToolImplementation = (parameters) => {
 
   return "Updated the order details.";
 };
+export const selectJobTool: ClientToolImplementation = (parameters) => {
+  const { skills } = parameters;
+
+  console.debug("Filtering jobs based on skills:", skills);
+
+  if (typeof window !== "undefined") {
+    const event = new CustomEvent("filteredJobs", {
+      detail: { skills }
+    });
+    window.dispatchEvent(event);
+  }
+
+  return `Filtered jobs for skills: ${skills.join(', ')}`;
+};
+
+export const chooseSpecificJobTool: ClientToolImplementation = (parameters) => {
+  const { jobId } = parameters;
+
+  console.debug("Selected job for details:", jobId);
+
+  if (typeof window !== "undefined") {
+    const event = new CustomEvent("selectedJobDetails", {
+      detail: { jobId }
+    });
+    window.dispatchEvent(event);
+  }
+
+  return `Selected job with ID: ${jobId} and fetched summary, interview tips, and resume advice.`;
+};
 
 export const generateTipsTool: ClientToolImplementation = (parameters) => {
   const { summary, strengths, improvementTips } = parameters;

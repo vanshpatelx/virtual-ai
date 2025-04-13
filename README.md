@@ -6,6 +6,13 @@ Built with ❤️ by **Vansh Patel** and **Team Quantum** at Hacks.
 
 ---
 
+## 🎥 Demo
+
+Check out our live demo on Loom:  
+👉 [Watch the Demo](https://www.loom.com/share/9e00d340f13c4e0e8059936bbaf21e38?sid=dec1d062-4661-4bd6-885a-bcfc0094448a)
+
+---
+
 ## 🚀 Features Highlight
 
 ### 🎤 Self-Assessment Engine  
